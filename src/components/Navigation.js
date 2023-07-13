@@ -14,8 +14,7 @@ const pages = [
   },
 ];
 
-const Navigation = () => {
-  return (
+const Navigation = () =>
     <nav className="navbar">
       <h1>CMS Bookstore</h1>
       <ul className="nav-items">
@@ -26,7 +25,4 @@ const Navigation = () => {
         ))}
       </ul>
     </nav>
-  );
-};
-
 export default Navigation;

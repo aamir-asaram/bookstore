@@ -1,11 +1,10 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const Book = ({ book, removeBook }) => {
   const { title, author, genre } = book;
 
   const handleClick = () => {
-    console.log('delete')
     removeBook(book.id);
   };
 
@@ -17,18 +16,20 @@ const Book = ({ book, removeBook }) => {
         <div className="book-author">{author}</div>
       </div>
       <div className="buttons">
-        <button className="btn btn-delete" onClick={handleClick}>Delete</button>
+        <button type="button" className="btn btn-delete" onClick={handleClick}>Delete</button>
       </div>
     </div>
   );
-}
+};
 
 Book.propTypes = {
   book: PropTypes.shape({
+    id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     author: PropTypes.string.isRequired,
     genre: PropTypes.string.isRequired,
   }).isRequired,
+  removeBook: PropTypes.func.isRequired,
 };
 
 export default Book;
