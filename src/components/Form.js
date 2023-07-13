@@ -34,7 +34,7 @@ const Form = ({ addBook }) => {
   );
 };
 
-Form.PropTypes = {
+Form.propTypes = {
   addBook: PropTypes.func.isRequired,
 };
 
