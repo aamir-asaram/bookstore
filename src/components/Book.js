@@ -1,20 +1,23 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const Book = ({ book }) => {
+const Book = ({ book, removeBook }) => {
   const { title, author, genre } = book;
 
-  const handleChange = (event) => {
-    updateBookShelf(book, event.target.value);
+  const handleClick = () => {
+    console.log('delete')
+    removeBook(book.id);
   };
 
   return (
     <div className="book">
-      <div className="genre">{genre}</div>
-      <div className="book-title">{title}</div>
-      <div className="book-author">{author}</div>
+      <div className="info">
+        <div className="genre">{genre}</div>
+        <div className="book-title">{title}</div>
+        <div className="book-author">{author}</div>
+      </div>
       <div className="buttons">
-        <button className="btn btn-delete">Delete</button>
+        <button className="btn btn-delete" onClick={handleClick}>Delete</button>
       </div>
     </div>
   );

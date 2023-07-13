@@ -1,0 +1,58 @@
+body > * {
+  margin-left: 5%;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+}
+
+.nav-items {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  margin-left: 5%;
+  padding: 0;
+}
+
+.nav-items li {
+  margin-right: 40%;
+}
+
+.nav-items li a {
+  text-decoration: none;
+  color: rgb(129, 129, 129);
+}
+
+.nav-items li a:hover {
+  color: rgb(0, 0, 0);
+}
+
+.book {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  margin-block: 2%;
+  padding: 0;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+}
+
+.genre {
+  color: rgb(129, 129, 129);
+}
+
+.book-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: black;
+}
+
+.form * {
+  margin-right: 16px;
+}
