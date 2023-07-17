@@ -32,23 +32,19 @@ const Form = () => {
         <input
           type="text"
           placeholder="Title"
-          onChange={(e) => { setTitle(e.target.value); }}
+          onChange={(e) => {setTitle(e.target.value);}}
           value={ title }
         />
         <input
           type="text"
           placeholder="Author"
-          onChange={(e) => { setAuthor(e.target.value); }}
+          onChange={(e) => {setAuthor(e.target.value);}}
           value={ author }
         />
         <button type="submit" onClick={handleSubmit}>Add book</button>
       </form>
     </div>
   );
-};
-
-Form.propTypes = {
-  addBook: PropTypes.func.isRequired,
 };
 
 export default Form;
