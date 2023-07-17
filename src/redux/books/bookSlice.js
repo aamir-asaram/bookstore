@@ -7,8 +7,9 @@ export const booksSlice = createSlice({
   },
   reducers: {
     addBook: (state, action) => { state.value.push(action.payload); },
-    deleteBook: (state, action) =>
-    { state.value = state.value.filter((book) => book.id !== action.payload); },
+    deleteBook: (state, action) => {
+      state.value = state.value.filter((book) => book.id !== action.payload);
+    },
   },
 });
 
