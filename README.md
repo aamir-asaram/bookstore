@@ -69,8 +69,8 @@ In order to run this project you need:
 
 Clone this repository to your desired folder:
 <code>
-  git clone https://github.com/aamir-asaram/math-magicians.git
-  cd math-magicians
+  git clone https://github.com/aamir-asaram/bookstore.git
+  cd bookstore
 </code>
 
 
@@ -79,11 +79,6 @@ Clone this repository to your desired folder:
 Install this project with:
 
 * npm install
-
-
-### Run tests
-
-Coming soon
 
 ### Deployment <a name="deployment"></a>
 
