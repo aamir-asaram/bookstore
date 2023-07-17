@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './Books.css';
 import { v4 as uuidv4 } from 'uuid';
 
-const Form = ({ addBook }) => {
+const Form = () => {
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
 
@@ -16,7 +16,6 @@ const Form = ({ addBook }) => {
         author,
         genre: 'Novel',
       };
-      addBook(bookObject);
       setTitle('');
       setAuthor('');
     }
@@ -32,10 +31,6 @@ const Form = ({ addBook }) => {
       </form>
     </div>
   );
-};
-
-Form.propTypes = {
-  addBook: PropTypes.func.isRequired,
 };
 
 export default Form;
