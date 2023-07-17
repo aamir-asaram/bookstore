@@ -1,14 +1,13 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-import { deleteBook } from '../redux/books/bookSlice';
+import PropTypes from 'prop-types';
+import { deleteBookAsync } from '../redux/books/bookSlice';
 
 const Book = ({ book }) => {
   const { title, author, category } = book;
   const dispatch = useDispatch();
-
-  const handleClick = () => {
-    dispatch(deleteBook(book.item_id));
+  const handleRemoveBook = () => {
+    dispatch(deleteBookAsync(book));
   };
 
   return (
@@ -19,7 +18,7 @@ const Book = ({ book }) => {
         <div className="book-author">{author}</div>
       </div>
       <div className="buttons">
-        <button type="button" className="btn btn-delete" onClick={handleClick}>Delete</button>
+        <button type="button" className="btn btn-delete" onClick={handleRemoveBook}>Delete</button>
       </div>
     </div>
   );

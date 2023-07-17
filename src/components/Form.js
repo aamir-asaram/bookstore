@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import './Books.css';
 import { v4 as uuidv4 } from 'uuid';
-import { useDispatch } from 'react-redux';
-import { addBook } from '../redux/books/bookSlice';
+import { addBookAsync } from '../redux/books/bookSlice';
 
 const Form = () => {
   const [title, setTitle] = useState('');
@@ -15,10 +15,11 @@ const Form = () => {
       const bookObject = {
         item_id: uuidv4(),
         title,
+
         author,
         category: 'Fiction',
       };
-      dispatch(addBook(bookObject));
+      dispatch(addBookAsync(bookObject));
       setTitle('');
       setAuthor('');
     }
@@ -40,7 +41,7 @@ const Form = () => {
           onChange={(e) => { setAuthor(e.target.value); }}
           value={author}
         />
-        <button type="submit" onClick={handleSubmit}>Add book</button>
+        <button type="submit" value="Add book" className="btn" onClick={handleSubmit}>Add book</button>
       </form>
     </div>
   );
