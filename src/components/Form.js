@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import './Books.css';
 import { v4 as uuidv4 } from 'uuid';
 import { useDispatch } from 'react-redux';
@@ -32,14 +31,14 @@ const Form = () => {
         <input
           type="text"
           placeholder="Title"
-          onChange={(e) => {setTitle(e.target.value);}}
-          value={ title }
+          onChange={(e) => { setTitle(e.target.value); }}
+          value={title}
         />
         <input
           type="text"
           placeholder="Author"
-          onChange={(e) => {setAuthor(e.target.value);}}
-          value={ author }
+          onChange={(e) => { setAuthor(e.target.value); }}
+          value={author}
         />
         <button type="submit" onClick={handleSubmit}>Add book</button>
       </form>
