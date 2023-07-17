@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit';
 
 export const categoriesSlice = createSlice({
   name: 'categories',
@@ -8,11 +8,11 @@ export const categoriesSlice = createSlice({
   },
   reducers: {
     checkState: (state) => {
-      state.state = 'Under construction'
+      state.state = 'Under construction';
     },
   },
-})
+});
 
-export const { checkState } = categoriesSlice.actions
+export const { checkState } = categoriesSlice.actions;
 
-export default categoriesSlice.reducer
+export default categoriesSlice.reducer;
