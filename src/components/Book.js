@@ -1,17 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
+import { deleteBook } from '../redux/books/bookSlice';
 
-const Book = ({ book, removeBook }) => {
-  const { title, author, genre } = book;
+const Book = ({ book }) => {
+  const { title, author } = book;
+  const dispatch = useDispatch();
 
   const handleClick = () => {
-    removeBook(book.id);
+    dispatch(deleteBook(book.item_id));
   };
 
   return (
     <div className="book">
       <div className="info">
-        <div className="genre">{genre}</div>
         <div className="book-title">{title}</div>
         <div className="book-author">{author}</div>
       </div>

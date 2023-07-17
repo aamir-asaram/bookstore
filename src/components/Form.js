@@ -2,21 +2,24 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import './Books.css';
 import { v4 as uuidv4 } from 'uuid';
+import { useDispatch } from 'react-redux';
+import { addBook } from '../redux/books/bookSlice';
 
-const Form = ({ addBook }) => {
+const Form = () => {
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
+  const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (title && author) {
       const bookObject = {
-        id: uuidv4(),
+        item_id: uuidv4(),
         title,
         author,
         genre: 'Novel',
       };
-      addBook(bookObject);
+      dispatch(addBook(bookObject));
       setTitle('');
       setAuthor('');
     }
