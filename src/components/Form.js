@@ -41,7 +41,7 @@ const Form = () => {
           onChange={(e) => { setAuthor(e.target.value); }}
           value={author}
         />
-        <input type="submit" value="Add book" className="btn" onClick={handleSubmit} />
+        <button type="submit" value="Add book" className="btn" onClick={handleSubmit}>Add book</button>
       </form>
     </div>
   );
