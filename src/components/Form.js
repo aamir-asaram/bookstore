@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import PropTypes from 'prop-types';
 import './Books.css';
 import { v4 as uuidv4 } from 'uuid';
 import { addBookAsync } from '../redux/books/bookSlice';
@@ -17,6 +16,7 @@ const Form = () => {
       const bookObject = {
         item_id: uuidv4(),
         title,
+
         author,
         category: 'Fiction',
       };
@@ -30,8 +30,18 @@ const Form = () => {
     <div className="form">
       <h2>Add new book</h2>
       <form>
-        <input type="text" placeholder="Title" onChange={(e) => { setTitle(e.target.value); }} />
-        <input type="text" placeholder="Author" onChange={(e) => { setAuthor(e.target.value); }} />
+        <input
+          type="text"
+          placeholder="Title"
+          onChange={(e) => { setTitle(e.target.value); }}
+          value={title}
+        />
+        <input
+          type="text"
+          placeholder="Author"
+          onChange={(e) => { setAuthor(e.target.value); }}
+          value={author}
+        />
         <input type="submit" value="Add book" className="btn" onClick={handleSubmit} />
       </form>
     </div>

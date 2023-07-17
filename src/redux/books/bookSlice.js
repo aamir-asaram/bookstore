@@ -1,16 +1,19 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
+const baseURL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps';
+const appID = '2l9QUz9ek21lUrhry1Y6';
+
 export const fetchBooks = createAsyncThunk(
   'books/fetchBooks',
   async () => {
-    const response = await axios.get('https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/2l9QUz9ek21lUrhry1Y6/books');
+    const response = await axios.get(`${baseURL}/${appID}/books`);
     return response.data;
   },
 );
 
 export const addBookAsync = createAsyncThunk('books/addBook', async (book) => {
-  const response = await axios.post('https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/2l9QUz9ek21lUrhry1Y6/books', {
+  const response = await axios.post(`${baseURL}/${appID}/books`, {
     item_id: book.item_id,
     title: book.title,
     author: book.author,
@@ -19,30 +22,16 @@ export const addBookAsync = createAsyncThunk('books/addBook', async (book) => {
   return { book, response }
 });
 
+export const deleteBookAsync = createAsyncThunk('books/deleteBook', async (book) => {
+  const response = await axios.delete(`${baseURL}/${appID}/books/${book.item_id}`);
+  return { book, response }
+});
+
 export const booksSlice = createSlice({
   name: 'books',
   initialState: {
     value: // Initial state:
-    [
-      {
-        item_id: 'item1',
-        title: 'The Great Gatsby',
-        author: 'John Smith',
-        category: 'Fiction',
-      },
-      {
-        item_id: 'item2',
-        title: 'Anna Karenina',
-        author: 'Leo Tolstoy',
-        category: 'Fiction',
-      },
-      {
-        item_id: 'item3',
-        title: 'The Selfish Gene',
-        author: 'Richard Dawkins',
-        category: 'Nonfiction',
-      },
-    ],
+    [],
     loading: false,
     error: null,
   },
@@ -82,6 +71,18 @@ export const booksSlice = createSlice({
         state.value.push(action.payload.book);
       })
       .addCase(addBookAsync.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+      });
+    builder
+      .addCase(deleteBookAsync.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(deleteBookAsync.fulfilled, (state, action) => {
+        state.loading = false;
+        state.value = state.value.filter((book) => book.item_id !== action.payload.book.item_id);
+      })
+      .addCase(deleteBookAsync.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
       });

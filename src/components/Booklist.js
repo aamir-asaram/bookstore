@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 import Book from './Book';
@@ -8,11 +8,28 @@ import { fetchBooks } from '../redux/books/bookSlice';
 
 const Booklist = () => {
   const books = useSelector((state) => state.books.value);
+  const { loading, error } = useSelector((state) => state.books);
   const dispatch = useDispatch();
   console.log(books);
   useEffect(() => {
     dispatch(fetchBooks());
   }, [dispatch]);
+
+  if (loading) {
+    return (
+      <div className="booklist">
+        <div className="loading">Loading...</div>
+      </div>
+    );
+  };
+
+  if (error) {
+    return (
+      <div className="booklist">
+        <div className="error">{error}</div>
+      </div>
+    );
+  };
 
   return (
     <>
