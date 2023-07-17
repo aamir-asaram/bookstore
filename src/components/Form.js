@@ -10,7 +10,6 @@ const Form = () => {
   const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
-    console.log('submit');
     e.preventDefault();
     if (title && author) {
       const bookObject = {

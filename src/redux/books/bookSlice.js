@@ -19,12 +19,12 @@ export const addBookAsync = createAsyncThunk('books/addBook', async (book) => {
     author: book.author,
     category: book.category,
   });
-  return { book, response }
+  return { book, response };
 });
 
 export const deleteBookAsync = createAsyncThunk('books/deleteBook', async (book) => {
   const response = await axios.delete(`${baseURL}/${appID}/books/${book.item_id}`);
-  return { book, response }
+  return { book, response };
 });
 
 export const booksSlice = createSlice({
@@ -43,25 +43,25 @@ export const booksSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-    .addCase(fetchBooks.pending, (state) => {
-      state.loading = true;
-    })
-    .addCase(fetchBooks.fulfilled, (state, action) => {
-      state.loading = false;
-      const data = Object.keys(action.payload).map((item) => {
-        const book = {};
-        book.author = action.payload[item][0].author;
-        book.category = action.payload[item][0].category;
-        book.title = action.payload[item][0].title;
-        book.item_id = item;
-        return book;
+      .addCase(fetchBooks.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(fetchBooks.fulfilled, (state, action) => {
+        state.loading = false;
+        const data = Object.keys(action.payload).map((item) => {
+          const book = {};
+          book.author = action.payload[item][0].author;
+          book.category = action.payload[item][0].category;
+          book.title = action.payload[item][0].title;
+          book.item_id = item;
+          return book;
+        });
+        state.value = data;
+      })
+      .addCase(fetchBooks.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message;
       });
-      state.value = data;
-    })
-    .addCase(fetchBooks.rejected, (state, action) => {
-      state.loading = false;
-      state.error = action.error.message;
-    });
     builder
       .addCase(addBookAsync.pending, (state) => {
         state.loading = true;

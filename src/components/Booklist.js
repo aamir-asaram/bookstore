@@ -1,4 +1,4 @@
-import React, { useEffect} from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 import Book from './Book';
@@ -20,7 +20,7 @@ const Booklist = () => {
         <div className="loading">Loading...</div>
       </div>
     );
-  };
+  }
 
   if (error) {
     return (
@@ -28,12 +28,12 @@ const Booklist = () => {
         <div className="error">{error}</div>
       </div>
     );
-  };
+  }
 
   return (
     <>
       <div className="booklist">
-        {books.map((book) => ( <Book key={uuidv4()} book={book} /> ))}
+        {books.map((book) => (<Book key={uuidv4()} book={book} />))}
       </div>
       <Form />
     </>
