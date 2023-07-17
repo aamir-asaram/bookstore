@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { deleteBook } from '../redux/books/bookSlice';
 
 const Book = ({ book }) => {
-  const { title, author } = book;
+  const { title, author, category } = book;
   const dispatch = useDispatch();
 
   const handleClick = () => {
@@ -14,6 +14,7 @@ const Book = ({ book }) => {
   return (
     <div className="book">
       <div className="info">
+        <div className="genre">{category}</div>
         <div className="book-title">{title}</div>
         <div className="book-author">{author}</div>
       </div>
@@ -29,7 +30,7 @@ Book.propTypes = {
     item_id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     author: PropTypes.string.isRequired,
-    genre: PropTypes.string.isRequired,
+    category: PropTypes.string.isRequired,
   }).isRequired,
 };
 

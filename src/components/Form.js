@@ -16,7 +16,7 @@ const Form = () => {
         item_id: uuidv4(),
         title,
         author,
-        genre: 'Novel',
+        category: 'Fiction',
       };
       dispatch(addBook(bookObject));
       setTitle('');
