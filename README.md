@@ -102,8 +102,9 @@ You can deploy this project using: GitHub Pages
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] Custom themes
+- [ ] Custom category
 - [ ] Progress Updates
+- [ ] Store progress and chapter in API
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
