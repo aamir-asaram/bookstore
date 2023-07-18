@@ -5,11 +5,11 @@ const Navigation = () => (
   <nav className="navbar">
     <h1>CMS Bookstore</h1>
     <ul className="nav-items">
-      <li key={'/'}>
-        <Link to={'/'} className='active'>{'Home'}</Link>
+      <li key="/">
+        <Link to="/" className="active">Home</Link>
       </li>
-      <li key={'categories'}>
-        <Link to={'categories'}>{'Categories'}</Link>
+      <li key="categories">
+        <Link to="categories">Categories</Link>
       </li>
     </ul>
   </nav>

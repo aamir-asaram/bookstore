@@ -1,8 +1,8 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
-import { deleteBookAsync } from '../redux/books/bookSlice';
 import { CircularProgressbar } from 'react-circular-progressbar';
+import { deleteBookAsync } from '../redux/books/bookSlice';
 
 const Book = ({ book }) => {
   const { title, author, category } = book;
@@ -13,7 +13,6 @@ const Book = ({ book }) => {
 
   const percentage = Math.floor(Math.random() * 100);
   const chapter = Math.floor(Math.random() * 50);
-
 
   return (
     <div className="book">
@@ -31,29 +30,33 @@ const Book = ({ book }) => {
       </div>
       <div id="progress">
         <CircularProgressbar
-            value={percentage}
-            styles={{
-              trail: {
-                stroke: '#d6d6d6',
-                strokeLinecap: 'butt',
-                transformOrigin: 'center center',
-              },
-              path: {
-                stroke: '#0290ff',
-                strokeLinecap: 'butt',
-                transition: 'stroke-dashoffset 0.5s ease 0s',
-                transformOrigin: 'center center',
-              },
-            }}
-          />
+          value={percentage}
+          styles={{
+            trail: {
+              stroke: '#d6d6d6',
+              strokeLinecap: 'butt',
+              transformOrigin: 'center center',
+            },
+            path: {
+              stroke: '#0290ff',
+              strokeLinecap: 'butt',
+              transition: 'stroke-dashoffset 0.5s ease 0s',
+              transformOrigin: 'center center',
+            },
+          }}
+        />
       </div>
       <div id="percentage">
-        <div className="percentage">{percentage}%</div>
+        <div className="percentage">
+          {percentage}%
+        </div>
         <div className="completed">Completed</div>
       </div>
       <div id="chapter">
         <div className="chapter">CURRENT CHAPTER</div>
-        <div className="chapter-number">Chapter {chapter}</div>
+        <div className="chapter-number">
+          Chapter {chapter}
+        </div>
         <button type="button" className="btn btn-update">UPDATE PROGRESS</button>
       </div>
     </div>
