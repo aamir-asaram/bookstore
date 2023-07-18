@@ -48,14 +48,16 @@ const Book = ({ book }) => {
       </div>
       <div id="percentage">
         <div className="percentage">
-          {percentage}%
+          {percentage}
+          %
         </div>
         <div className="completed">Completed</div>
       </div>
       <div id="chapter">
         <div className="chapter">CURRENT CHAPTER</div>
         <div className="chapter-number">
-          Chapter {chapter}
+          Chapter
+          {chapter}
         </div>
         <button type="button" className="btn btn-update">UPDATE PROGRESS</button>
       </div>
