@@ -56,7 +56,7 @@ const Book = ({ book }) => {
       <div id="chapter">
         <div className="chapter">CURRENT CHAPTER</div>
         <div className="chapter-number">
-          Chapter
+          Chapter&nbsp;
           {chapter}
         </div>
         <button type="button" className="btn btn-update">UPDATE PROGRESS</button>

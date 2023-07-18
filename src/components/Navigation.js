@@ -12,6 +12,9 @@ const Navigation = () => (
         <Link to="categories">Categories</Link>
       </li>
     </ul>
+    <div className="profile">
+      <i className="fas fa-user" />
+    </div>
   </nav>
 );
 
