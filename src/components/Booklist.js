@@ -17,7 +17,7 @@ const Booklist = () => {
   if (loading) {
     return (
       <div className="booklist">
-        <div className="loading">Loading...</div>
+        <div className="status">Loading...</div>
       </div>
     );
   }
@@ -25,7 +25,7 @@ const Booklist = () => {
   if (error) {
     return (
       <div className="booklist">
-        <div className="error">{error}</div>
+        <div className="status">{error}</div>
       </div>
     );
   }

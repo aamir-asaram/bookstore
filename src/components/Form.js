@@ -34,6 +34,7 @@ const Form = () => {
           placeholder="Title"
           onChange={(e) => { setTitle(e.target.value); }}
           value={title}
+          className="new-title"
         />
         <input
           type="text"
